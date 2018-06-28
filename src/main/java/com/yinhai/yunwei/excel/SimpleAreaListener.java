@@ -56,7 +56,7 @@ public class SimpleAreaListener implements AreaListener {
         Font font=workbook.createFont();
         CellStyle resultCell=workbook.createCellStyle();
         Object item=context.getVar("item");
-        if(item!=null&&item instanceof YunweiInfo &&"纵横数据交换数据库".equals(((YunweiInfo) item).getName())){
+        if(item!=null&&item instanceof YunweiInfo &&"*****".equals(((YunweiInfo) item).getName())){
             font.setColor(XSSFFont.COLOR_RED);
             resultCell.setFont(font);
             cell.setCellStyle(resultCell);
