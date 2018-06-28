@@ -14,10 +14,6 @@ import org.apache.ibatis.annotations.Select;
  */
 
 public interface CenterMapper {
-    @Select("select name,info,\n" +
-            "'会员数据量：'||member||chr(10)||'单位数据量：'||company||chr(10)||'工会数据量：'||unionData as datainfo,note from (\n" +
-            "  select  '数据资源中心' as name,'运行良好' as info,'无' as note,\n" +
-            "    (select count(1) from a01) as member,(select count(1) from b01) as company,(select count(1) from b02) as unionData from dual\n" +
-            ")")
+    @Select("********************")
     YunweiInfo count();
 }
