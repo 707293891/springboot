@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <table class="table table-bordered">
+            <caption style="text-align: center;">日志情况预览</caption>
+            <thead>
+            <tr>
+                <th>名称</th>
+                <th>时间</th>
+                <th>系统运行状况</th>
+                <th>数据情况</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    $.ajax({
+        url:"info.do",
+        dataType:'json',
+        type:'post',
+        success:function(data){
+            $.each(data,function(a,b){
+                var tr="<tr>";
+                tr+="<td>"+b.name+"</td>";
+                tr+="<td>"+b.time+"</td>";
+                tr+="<td>"+b.info+"</td>";
+                tr+="<td>"+b.dataInfo+"</td>";
+                tr+="<td>"+b.note+"</td>";
+                tr+="</tr>"
+                $("tbody").append(tr);
+            })
+        }
+    })
+</script>
+</html>
